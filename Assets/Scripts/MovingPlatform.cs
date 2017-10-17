@@ -5,22 +5,24 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour {
 
 	public LayerMask collisionMask;
-	const float raycastOriginOffset = 0.15f;
+	protected const float raycastOriginOffset = 0.15f;
 	public int horizontalRayCount;
-	float horizontalRaySpacing;
-	BoxCollider boxCollider;
-	RaycastOrigins raycastOrigins;
+	public int verticalRayCount;
+	protected float horizontalRaySpacing;
+	protected float verticalRaySpacing;
+	protected BoxCollider boxCollider;
+	protected RaycastOrigins raycastOrigins;
 
 	public Transform[] waypoints;
 	public float waitTime;
 	public float smoothing;
-	Vector3 currentVelocity;
-	int currentWaypoint;
-	bool readyToGo;
-	Vector3 lastPosition;
-	List<Transform> objectsToMove;
+	protected Vector3 currentVelocity;
+	protected int currentWaypoint;
+	protected bool readyToGo;
+	protected Vector3 lastPosition;
+	protected List<Transform> objectsToMove;
 
-	void Start ()
+	protected virtual void Start ()
 	{
 		boxCollider = GetComponent<BoxCollider> ();
 		CalculateRaySpacing ();
@@ -30,25 +32,29 @@ public class MovingPlatform : MonoBehaviour {
 		objectsToMove = new List<Transform> ();
 	}
 
-	void CalculateRayOrigins ()
+	protected void CalculateRayOrigins ()
 	{
 		Bounds bounds = boxCollider.bounds;
 		bounds.Expand (0.15f * -2);
 
 		raycastOrigins.topLeft = new Vector2 (bounds.min.x, bounds.max.y);
 		raycastOrigins.topRight = new Vector2 (bounds.max.x, bounds.max.y);
+		raycastOrigins.bottomLeft = new Vector2 (bounds.min.x, bounds.min.y);
+		raycastOrigins.bottomRight = new Vector2 (bounds.max.x, bounds.min.y);
 	}
 
-	void CalculateRaySpacing ()
+	protected void CalculateRaySpacing ()
 	{
 		Bounds bounds = boxCollider.bounds;
 		bounds.Expand (raycastOriginOffset * -2);
 
 		horizontalRayCount = Mathf.Clamp (horizontalRayCount, 2, int.MaxValue);
 		horizontalRaySpacing = bounds.size.x / (horizontalRayCount - 1);
+		verticalRayCount = Mathf.Clamp (verticalRayCount, 2, int.MaxValue);
+		verticalRaySpacing = bounds.size.y / (verticalRayCount - 1);
 	}
 
-	void VerticalCollisions ()
+	protected void VerticalCollisions ()
 	{
 		float rayLength = 0.1f + raycastOriginOffset;
 
@@ -68,11 +74,53 @@ public class MovingPlatform : MonoBehaviour {
 		}
 	}
 
-	void Update ()
+	protected void HorizontalLeftCollisions ()
+	{
+		float rayLength = 0.1f + raycastOriginOffset;
+
+		for (int i = 0; i < verticalRayCount; i++) {
+			Vector2 rayOrigin = raycastOrigins.topLeft;
+			rayOrigin += (i * verticalRaySpacing) * Vector2.down;
+			RaycastHit hitInfo;
+			bool hit = Physics.Raycast (rayOrigin, Vector3.left, out hitInfo, rayLength, collisionMask);
+
+			Debug.DrawRay (rayOrigin, rayLength * Vector3.left, Color.red);
+
+			if (hit) {
+				if (!objectsToMove.Contains (hitInfo.collider.transform)) {
+					objectsToMove.Add (hitInfo.collider.transform);
+				}
+			}
+		}
+	}
+
+	protected void HorizontalRightCollisions ()
+	{
+		float rayLength = 0.1f + raycastOriginOffset;
+
+		for (int i = 0; i < verticalRayCount; i++) {
+			Vector2 rayOrigin = raycastOrigins.topRight;
+			rayOrigin += (i * verticalRaySpacing) * Vector2.down;
+			RaycastHit hitInfo;
+			bool hit = Physics.Raycast (rayOrigin, Vector3.right, out hitInfo, rayLength, collisionMask);
+
+			Debug.DrawRay (rayOrigin, rayLength * Vector3.right, Color.red);
+
+			if (hit) {
+				if (!objectsToMove.Contains (hitInfo.collider.transform)) {
+					objectsToMove.Add (hitInfo.collider.transform);
+				}
+			}
+		}
+	}
+
+	protected virtual void Update ()
 	{
 		objectsToMove = new List<Transform> ();
 		CalculateRayOrigins ();
 		VerticalCollisions ();
+		HorizontalLeftCollisions ();
+		HorizontalRightCollisions ();
 
 		if (waypoints.Length > 0) {
 			if (readyToGo) {
@@ -83,7 +131,7 @@ public class MovingPlatform : MonoBehaviour {
 		}
 	}
 
-	IEnumerator GoToPosition (Vector3 newPosition)
+	protected IEnumerator GoToPosition (Vector3 newPosition)
 	{
 		while (Vector3.Distance (transform.position, newPosition) > 0.1f) {
 			transform.position = Vector3.SmoothDamp (transform.position, newPosition, ref currentVelocity, smoothing);
@@ -97,7 +145,7 @@ public class MovingPlatform : MonoBehaviour {
 		readyToGo = true;
 	}
 
-	struct RaycastOrigins {
-		public Vector2 topLeft, topRight;
+	protected struct RaycastOrigins {
+		public Vector2 topLeft, topRight, bottomLeft, bottomRight;
 	}
 }

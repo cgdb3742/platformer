@@ -15,6 +15,8 @@ public class PlayerInput : MonoBehaviour {
 
 	public int dashDirections = 8;
 
+	public float damageImpulse = 5.0f;
+
 	[HideInInspector]
 	public Vector3 platformVelocity;
 
@@ -40,6 +42,35 @@ public class PlayerInput : MonoBehaviour {
 
 	void Update ()
 	{
+		if (controller.collisions.damagedLeft || controller.collisions.damagedRight || controller.collisions.damagedAbove || controller.collisions.damagedBelow) {
+			Vector2 damageDir = Vector2.zero;
+
+			if (controller.collisions.damagedLeft) {
+				damageDir.x += 1.0f;
+			}
+
+			if (controller.collisions.damagedRight) {
+				damageDir.x -= 1.0f;
+			}
+
+			if (controller.collisions.damagedBelow) {
+				damageDir.y += 1.0f;
+			}
+
+			if (controller.collisions.damagedAbove) {
+				damageDir.y -= 1.0f;
+			}
+
+			if (damageDir != Vector2.zero) {
+				damageDir *= damageImpulse / damageDir.magnitude;
+			}
+
+			velocity = damageDir;
+			controller.Move (Time.deltaTime * velocity);
+
+			return;
+		}
+
 		if (controller.collisions.above.isColliding || controller.collisions.below.isColliding) {
 			velocity.y = 0f;
 		}

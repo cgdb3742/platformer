@@ -5,9 +5,14 @@ using UnityEngine;
 [RequireComponent (typeof (BoxCollider))]
 public class PlayerController : MonoBehaviour {
 
+	protected LifeControl lifeControl = null;
+
 	public LayerMask collisionMask;
 
 	const float raycastOriginOffset = 0.15f;
+
+	public float invulnerabilityTimer = 1.0f;
+	public float currentInvulnerabilityTimer = 0.0f;
 
 	public int horizontalRayCount;
 	public int verticalRayCount;
@@ -21,9 +26,24 @@ public class PlayerController : MonoBehaviour {
 
 	void Start ()
 	{
+		lifeControl = GameObject.Find ("LifeBase").GetComponent<LifeControl> ();
+
 		boxCollider = GetComponent<BoxCollider> ();
 
 		CalculateRaySpacing ();
+	}
+
+	void Update()
+	{
+		if (currentInvulnerabilityTimer > 0.0f) {
+			currentInvulnerabilityTimer -= Time.deltaTime;
+		}
+	}
+
+	void GetDamaged()
+	{
+		currentInvulnerabilityTimer = invulnerabilityTimer;
+		lifeControl.LoseLife (1);
 	}
 
 	public void Move (Vector3 velocity)
@@ -69,6 +89,8 @@ public class PlayerController : MonoBehaviour {
 		float directionX = Mathf.Sign (velocity.x);
 		float rayLength = Mathf.Abs (velocity.x) + raycastOriginOffset;
 
+		bool damaged = false;
+
 		for (int i = 0; i < horizontalRayCount; i++) {
 			Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
 			rayOrigin += (i * horizontalRaySpacing + velocity.y) * Vector2.up;						// + velocity.y pour prévoir la collision
@@ -82,14 +104,25 @@ public class PlayerController : MonoBehaviour {
 					collisions.left.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
 					if (collisions.left.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
+					} else if (collisions.left.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+						GetDamaged ();
+						damaged = true;
+						collisions.damagedLeft = true;
 					}
+
 					collisions.left.isColliding = true;
+
 				}
 				if (directionX == 1) {
 					collisions.right.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
 					if (collisions.right.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
+					} else if (collisions.right.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+						GetDamaged ();
+						damaged = true;
+						collisions.damagedRight = true;
 					}
+
 					collisions.right.isColliding = true;
 				}
 
@@ -104,6 +137,8 @@ public class PlayerController : MonoBehaviour {
 		float directionY = Mathf.Sign (velocity.y);
 		float rayLength = Mathf.Abs (velocity.y) + raycastOriginOffset;
 
+		bool damaged = false;
+
 		for (int i = 0; i < verticalRayCount; i++) {
 			Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
 			rayOrigin += (i * verticalRaySpacing + velocity.x) * Vector2.right;						// + velocity.x pour prévoir la collision
@@ -114,15 +149,27 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				if (directionY == -1) {
-					collisions.below.isColliding = true;
 					collisions.below.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
+
+					if (collisions.below.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+						GetDamaged ();
+						damaged = true;
+						collisions.damagedBelow = true;
+					}
+
+					collisions.below.isColliding = true;
 				}
 				if (directionY == 1) {
 					collisions.above.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
 					if (collisions.above.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
+					} else if (collisions.above.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+						GetDamaged ();
+						damaged = true;
+						collisions.damagedAbove = true;
 					}
-					collisions.above.isColliding= true;
+
+					collisions.above.isColliding = true;
 				}
 
 				velocity.y = (hitInfo.distance - raycastOriginOffset) * directionY;
@@ -137,6 +184,7 @@ public class PlayerController : MonoBehaviour {
 
 	public struct Collisions {
 		public CollisionInfo above, below, left, right;
+		public bool damagedAbove, damagedBelow, damagedLeft, damagedRight;
 
 		public void Reset ()
 		{
@@ -144,6 +192,11 @@ public class PlayerController : MonoBehaviour {
 			below.isColliding = false;
 			left.isColliding = false;
 			right.isColliding = false;
+
+			damagedAbove = false;
+			damagedBelow = false;
+			damagedLeft = false;
+			damagedRight = false;
 		}
 	}
 

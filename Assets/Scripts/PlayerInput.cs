@@ -70,10 +70,10 @@ public class PlayerInput : MonoBehaviour {
 		if (Input.GetButtonDown ("Jump")) {
 			if (controller.collisions.below.isColliding) {
 				velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacleType);
-			} else if (input.x > 0 && controller.collisions.left.isColliding) {
+			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.left.isColliding) {
 				velocity.x = wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;
-			} else if (input.x < 0 && controller.collisions.right.isColliding) {
+			} else if ((input.x < 0 || clingRightWall) && controller.collisions.right.isColliding) {
 				velocity.x = -wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;
 			} else if (!doubleJumped) {

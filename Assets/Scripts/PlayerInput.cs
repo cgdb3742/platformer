@@ -68,8 +68,13 @@ public class PlayerInput : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("Jump")) {
-			if (controller.collisions.below.isColliding) {
-				velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacleType);
+			 if (controller.collisions.below.isColliding) {
+				if (input.y < 0 && controller.collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					controller.collisions.below.obstacle.Disable (0.5f);
+					doubleJumped = true;
+				} else {
+					velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacle.obstacleType);
+				}
 			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.left.isColliding) {
 				velocity.x = wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;
@@ -104,8 +109,6 @@ public class PlayerInput : MonoBehaviour {
 
 		if (dashing) {
 			float frameDashDuration = Mathf.Min (Time.deltaTime, Mathf.Max (0.0f, dashDuration - currentDashDuration));
-
-			Debug.Log (frameDashDuration);
 
 			velocity = dashDirection * dashSpeed;
 

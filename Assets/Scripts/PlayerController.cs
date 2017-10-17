@@ -79,15 +79,15 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				if (directionX == -1) {
-					collisions.left.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.left.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.left.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
 					}
 					collisions.left.isColliding = true;
 				}
 				if (directionX == 1) {
-					collisions.right.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.right.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.right.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
 					}
 					collisions.right.isColliding = true;
@@ -114,12 +114,15 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				if (directionY == -1) {
+					collisions.below.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (!collisions.below.obstacle.enabled) {
+						return;
+					}
 					collisions.below.isColliding = true;
-					collisions.below.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
 				}
 				if (directionY == 1) {
-					collisions.above.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.above.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
 					}
 					collisions.above.isColliding= true;
@@ -149,6 +152,6 @@ public class PlayerController : MonoBehaviour {
 
 	public struct CollisionInfo {
 		public bool isColliding;
-		public Obstacle.ObstacleType obstacleType;
+		public Obstacle obstacle;
 	}
 }

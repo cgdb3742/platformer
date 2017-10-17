@@ -78,17 +78,23 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * directionX * Vector3.right, Color.red);
 
 			if (hit) {
-				velocity.x = (hitInfo.distance - raycastOriginOffset) * directionX;
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
-
 				if (directionX == -1) {
-					collisions.left.isColliding = true;
 					collisions.left.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
+					if (collisions.left.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+						return;
+					}
+					collisions.left.isColliding = true;
 				}
 				if (directionX == 1) {
-					collisions.right.isColliding = true;
 					collisions.right.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
+					if (collisions.right.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+						return;
+					}
+					collisions.right.isColliding = true;
 				}
+
+				velocity.x = (hitInfo.distance - raycastOriginOffset) * directionX;
+				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}
@@ -107,19 +113,20 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * directionY * Vector3.up, Color.red);
 
 			if (hit) {
-				velocity.y = (hitInfo.distance - raycastOriginOffset) * directionY;
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
-
 				if (directionY == -1) {
 					collisions.below.isColliding = true;
 					collisions.below.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
 				}
 				if (directionY == 1) {
 					collisions.above.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.above.obstacleType != Obstacle.ObstacleType.TraversablePlatform) {
-						collisions.above.isColliding= true;
+					if (collisions.above.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+						return;
 					}
+					collisions.above.isColliding= true;
 				}
+
+				velocity.y = (hitInfo.distance - raycastOriginOffset) * directionY;
+				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}

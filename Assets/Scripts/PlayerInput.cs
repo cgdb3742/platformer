@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour {
 	public float damageImpulse = 5.0f;
 
 	[HideInInspector]
-	public Vector3 platformVelocity;
+	//public Vector3 platformVelocity;
 
 	Vector3 velocity;
 	float currentVelocityX;
@@ -71,40 +71,43 @@ public class PlayerInput : MonoBehaviour {
 			return;
 		}
 
-		if (controller.collisions.above.isColliding || controller.collisions.below.isColliding) {
+		if (controller.collisions.blockedAbove || controller.collisions.blockedBelow) {
 			velocity.y = 0f;
 		}
 
-		if (controller.collisions.below.isColliding  && doubleJumped) {
+		if (controller.collisions.blockedBelow  && doubleJumped) {
 			doubleJumped = false;
 		}
 
-		if ((controller.collisions.above.isColliding || controller.collisions.below.isColliding || controller.collisions.left.isColliding || controller.collisions.right.isColliding) && dashed) {
+		if ((controller.collisions.blockedAbove || controller.collisions.blockedBelow || controller.collisions.blockedLeft || controller.collisions.blockedRight) && dashed) {
 			dashed = false;
 			dashing = false;
 			currentDashDuration = 0.0f;
 		}
 
-		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		float horizontalInput = Mathf.Clamp (Input.GetAxisRaw ("Horizontal"), -1.0f, 1.0f);
+		float verticalInput = Mathf.Clamp (Input.GetAxisRaw ("Vertical"), -1.0f, 1.0f);
+
+		Vector2 input = new Vector2 (horizontalInput, verticalInput);
 
 		bool clingLeftWall = false;
 		bool clingRightWall = false;
 
 		if (Input.GetButton ("Cling")) {
-			if (controller.collisions.left.isColliding) {
+			if (controller.collisions.blockedLeft) {
 				clingLeftWall = true;
-			} else if (controller.collisions.right.isColliding) {
+			} else if (controller.collisions.blockedRight) {
 				clingRightWall = true;
 			}
 		}
 
 		if (Input.GetButtonDown ("Jump")) {
-			if (controller.collisions.below.isColliding) {
+			if (controller.collisions.blockedBelow) {
 				velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacleType);
-			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.left.isColliding) {
+			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.blockedLeft) {
 				velocity.x = wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;
-			} else if ((input.x < 0 || clingRightWall) && controller.collisions.right.isColliding) {
+			} else if ((input.x < 0 || clingRightWall) && controller.collisions.blockedRight) {
 				velocity.x = -wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;
 			} else if (!doubleJumped) {
@@ -152,15 +155,17 @@ public class PlayerInput : MonoBehaviour {
 		} else {
 			if (clingLeftWall || clingRightWall) {
 				velocity = Vector3.zero;
-				velocity.x = platformVelocity.x + (clingLeftWall ? -0.5f : 0.5f);
-				velocity.y = platformVelocity.y;
+				//velocity.x = platformVelocity.x + (clingLeftWall ? -0.5f : 0.5f);
+				//velocity.y = platformVelocity.y;
+				velocity.x = clingLeftWall ? -0.5f : 0.5f;
 			} else {
 				float targetVelocityX = input.x * moveSpeed;
 
-				targetVelocityX += platformVelocity.x;
+				//targetVelocityX += platformVelocity.x;
 
-				velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref currentVelocityX, (controller.collisions.below.isColliding) ? smoothX : 2f * smoothX);
-				velocity.y += gravity * Time.deltaTime + platformVelocity.y;
+				velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref currentVelocityX, (controller.collisions.blockedBelow) ? smoothX : 2f * smoothX);
+				//velocity.y += gravity * Time.deltaTime + platformVelocity.y;
+				velocity.y += gravity * Time.deltaTime;
 			}
 
 			controller.Move (Time.deltaTime * velocity);

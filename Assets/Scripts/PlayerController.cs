@@ -292,8 +292,8 @@ public class PlayerController : MonoBehaviour {
 		bool damaged = false;
 
 		for (int i = 0; i < horizontalRayCount; i++) {
-			Vector2 rayOrigin = raycastOrigins.topLeft;
-			rayOrigin += (i * horizontalRaySpacing + velocity.y) * Vector2.down;						// + velocity.y pour prévoir la collision
+			Vector2 rayOrigin = raycastOrigins.bottomLeft;
+			rayOrigin += (i * horizontalRaySpacing + velocity.y) * Vector2.up;						// + velocity.y pour prévoir la collision
 			RaycastHit hitInfo;
 			bool hit = Physics.Raycast (rayOrigin, Vector3.left, out hitInfo, rayLength, collisionMask);
 
@@ -329,8 +329,8 @@ public class PlayerController : MonoBehaviour {
 		bool damaged = false;
 
 		for (int i = 0; i < horizontalRayCount; i++) {
-			Vector2 rayOrigin = raycastOrigins.topRight;
-			rayOrigin += (i * horizontalRaySpacing + velocity.y) * Vector2.down;						// + velocity.y pour prévoir la collision
+			Vector2 rayOrigin = raycastOrigins.bottomRight;
+			rayOrigin += (i * horizontalRaySpacing + velocity.y) * Vector2.up;						// + velocity.y pour prévoir la collision
 			RaycastHit hitInfo;
 			bool hit = Physics.Raycast (rayOrigin, Vector3.right, out hitInfo, rayLength, collisionMask);
 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -143,8 +143,6 @@ public class PlayerInput : MonoBehaviour {
 
 		if (dashing) {
 			float frameDashDuration = Mathf.Min (Time.deltaTime, Mathf.Max (0.0f, dashDuration - currentDashDuration));
-
-			//Debug.Log (frameDashDuration);
 
 			velocity = dashDirection * dashSpeed;
 

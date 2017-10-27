@@ -35,4 +35,16 @@ public class Obstacle : MonoBehaviour {
 	{
 		return jumpVelocityFactors [(int)type];
 	}
+    
+    public void Disable (float t)
+	{
+		StartCoroutine ("DisableForSeconds", t);
+	}
+
+	IEnumerator DisableForSeconds (float t)
+	{
+		this.enabled = false;
+		yield return new WaitForSeconds (t);
+		this.enabled = true;
+	}
 }

@@ -131,10 +131,10 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				if (directionX == -1) {
-					collisions.left.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.left.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.left.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
-					} else if (collisions.left.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+					} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 						GetDamaged ();
 						damaged = true;
 						collisions.damagedLeft = true;
@@ -145,10 +145,10 @@ public class PlayerController : MonoBehaviour {
 
 				}
 				if (directionX == 1) {
-					collisions.right.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.right.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.right.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
-					} else if (collisions.right.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+					} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 						GetDamaged ();
 						damaged = true;
 						collisions.damagedRight = true;
@@ -181,9 +181,9 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				if (directionY == -1) {
-					collisions.below.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
+					collisions.below.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
 
-					if (collisions.below.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+					if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 						GetDamaged ();
 						damaged = true;
 						collisions.damagedBelow = true;
@@ -193,10 +193,10 @@ public class PlayerController : MonoBehaviour {
 					collisions.blockedBelow = true;
 				}
 				if (directionY == 1) {
-					collisions.above.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-					if (collisions.above.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+					if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 						return;
-					} else if (collisions.above.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+					} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 						GetDamaged ();
 						damaged = true;
 						collisions.damagedAbove = true;
@@ -226,10 +226,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * Vector3.up, Color.red);
 
 			if (hit) {
-					collisions.above.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-				if (collisions.above.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
-				} else if (collisions.above.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+				} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedAbove = true;
@@ -261,8 +261,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * Vector3.down, Color.red);
 
 			if (hit) {
-				collisions.below.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-				if (collisions.below.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+				collisions.below.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				if (!collisions.below.obstacle.enabled) {
+					return;
+				} else if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedBelow = true;
@@ -294,10 +296,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * Vector3.left, Color.red);
 
 			if (hit) {
-				collisions.left.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-				if (collisions.left.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				collisions.left.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
-				} else if (collisions.left.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+				} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedLeft = true;
@@ -329,10 +331,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * Vector3.right, Color.red);
 
 			if (hit) {
-				collisions.right.obstacleType = hitInfo.collider.gameObject.GetComponent<Obstacle> ().obstacleType;
-				if (collisions.right.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				collisions.right.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
-				} else if (collisions.right.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
+				} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedRight = true;
@@ -380,6 +382,6 @@ public class PlayerController : MonoBehaviour {
 
 	public struct CollisionInfo {
 		public bool isColliding;
-		public Obstacle.ObstacleType obstacleType;
+		public Obstacle obstacle;
 	}
 }

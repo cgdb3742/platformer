@@ -103,7 +103,12 @@ public class PlayerInput : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump")) {
 			if (controller.collisions.blockedBelow) {
-				velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacleType);
+				if (input.y < 0 && controller.collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+					controller.collisions.below.obstacle.Disable (0.5f);
+					doubleJumped = true;
+				} else {
+					velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacle.obstacleType);
+				}
 			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.blockedLeft) {
 				velocity.x = wallJumpImpulseX;
 				velocity.y = wallJumpImpulseY;

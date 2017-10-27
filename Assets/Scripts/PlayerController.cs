@@ -227,7 +227,9 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 					collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
-				if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
+					return;
+				} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
 				} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
@@ -264,6 +266,8 @@ public class PlayerController : MonoBehaviour {
 				collisions.below.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
 				if (!collisions.below.obstacle.enabled) {
 					return;
+				} else if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
+					return;
 				} else if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
@@ -297,7 +301,9 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				collisions.left.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
-				if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
+					return;
+				} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
 				} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
@@ -332,7 +338,9 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				collisions.right.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
-				if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
+					return;
+				} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					return;
 				} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();

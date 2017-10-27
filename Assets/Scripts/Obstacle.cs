@@ -11,7 +11,8 @@ public class Obstacle : MonoBehaviour {
 		Normal = 0,
 		Bouncy = 1,
 		TraversablePlatform = 2,
-		Hot = 3
+		Hot = 3,
+		Fan = 4
 	}
 
 	public ObstacleType obstacleType = ObstacleType.Normal;
@@ -20,7 +21,7 @@ public class Obstacle : MonoBehaviour {
 
 	void Start ()
 	{
-		jumpVelocityFactors = new float [] { 1f, 2f, 1f, 1f};
+		jumpVelocityFactors = new float [] { 1f, 2f, 1f, 1f, 1f};
 	}
 
 	void Update() {

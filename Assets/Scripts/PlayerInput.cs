@@ -17,10 +17,12 @@ public class PlayerInput : MonoBehaviour {
 
 	public float damageImpulse = 5.0f;
 
+	public float traversePlatformThreshold = -0.5f;
+
 	[HideInInspector]
 	//public Vector3 platformVelocity;
 
-	Vector3 velocity;
+	public Vector3 velocity;
 	float currentVelocityX;
 
 	bool doubleJumped = false;
@@ -103,7 +105,7 @@ public class PlayerInput : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump")) {
 			if (controller.collisions.blockedBelow) {
-				if (input.y < 0 && controller.collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
+				if (input.y < traversePlatformThreshold && controller.collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
 					controller.collisions.below.obstacle.Disable (0.5f);
 					doubleJumped = true;
 				} else {

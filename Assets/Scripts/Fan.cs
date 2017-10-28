@@ -6,6 +6,7 @@ public class Fan : MonoBehaviour {
 
 	public float fanPower = 50.0f;
 	public float fanAngle = 90.0f;
+	public float fanMaxDistance = Mathf.Infinity;
 
 	protected Vector3 fanDirection = Vector3.zero;
 
@@ -50,11 +51,12 @@ public class Fan : MonoBehaviour {
 	}
 
 	void Collisions() {
+		List<PlayerInput> moved = new List<PlayerInput> ();
 
 		for (int i = 0; i < rayCount; i++) {
 			Vector2 rayOrigin = raycastStart + (raycastEnd - raycastStart) * i / (rayCount - 1);
 			RaycastHit hitInfo;
-			bool hit = Physics.Raycast (rayOrigin, fanDirection, out hitInfo, Mathf.Infinity, collisionMask);
+			bool hit = Physics.Raycast (rayOrigin, fanDirection, out hitInfo, fanMaxDistance, collisionMask);
 
 			Debug.DrawRay (rayOrigin, 0.15f * fanDirection, Color.red);
 
@@ -62,7 +64,10 @@ public class Fan : MonoBehaviour {
 				PlayerInput input = hitInfo.collider.GetComponent<PlayerInput> ();
 
 				if (input != null) {
-					input.velocity += fanPower * Time.deltaTime * fanDirection;
+					if (!moved.Contains (input)) {
+						input.velocity += fanPower * Time.deltaTime * fanDirection;
+						moved.Add (input);
+					}
 				}
 			}
 		}

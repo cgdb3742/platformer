@@ -68,7 +68,19 @@ public class MovingPlatform : MonoBehaviour {
 
 			if (hit) {
 				if (!objectsToMove.Contains (hitInfo.collider.transform)) {
-					objectsToMove.Add (hitInfo.collider.transform);
+					PlayerController controller = hitInfo.collider.GetComponent<PlayerController> ();
+					Obstacle obstacle = this.GetComponent<Obstacle> ();
+					bool register = true;
+
+					if (controller != null && obstacle != null) {
+						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+							register = false;
+						}
+					}
+
+					if (register) {
+						objectsToMove.Add (hitInfo.collider.transform);
+					}
 				}
 			}
 		}
@@ -88,7 +100,19 @@ public class MovingPlatform : MonoBehaviour {
 
 			if (hit) {
 				if (!objectsToMove.Contains (hitInfo.collider.transform)) {
-					objectsToMove.Add (hitInfo.collider.transform);
+					PlayerController controller = hitInfo.collider.GetComponent<PlayerController> ();
+					Obstacle obstacle = this.GetComponent<Obstacle> ();
+					bool register = true;
+
+					if (controller != null && obstacle != null) {
+						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+							register = false;
+						}
+					}
+
+					if (register) {
+						objectsToMove.Add (hitInfo.collider.transform);
+					}
 				}
 			}
 		}
@@ -108,7 +132,19 @@ public class MovingPlatform : MonoBehaviour {
 
 			if (hit) {
 				if (!objectsToMove.Contains (hitInfo.collider.transform)) {
-					objectsToMove.Add (hitInfo.collider.transform);
+					PlayerController controller = hitInfo.collider.GetComponent<PlayerController> ();
+					Obstacle obstacle = this.GetComponent<Obstacle> ();
+					bool register = true;
+
+					if (controller != null && obstacle != null) {
+						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+							register = false;
+						}
+					}
+
+					if (register) {
+						objectsToMove.Add (hitInfo.collider.transform);
+					}
 				}
 			}
 		}

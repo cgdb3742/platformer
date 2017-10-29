@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	public Color damagedColor;
 
 	public float invulnerabilityTimer = 1.0f;
+	[HideInInspector]
 	public float currentInvulnerabilityTimer = 0.0f;
 
 	public int horizontalRayCount;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 	RaycastOrigins raycastOrigins;
 	public Collisions collisions;
 
+	[HideInInspector]
 	public Vector3 platformVelocity = Vector3.zero;
 
 	void Start ()

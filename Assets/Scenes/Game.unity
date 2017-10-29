@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!23 &41089413
 MeshRenderer:
@@ -247,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &41727285
 MeshRenderer:
@@ -393,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 78331237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 19.25, z: 0}
+  m_LocalPosition: {x: -25, y: 19.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
@@ -493,7 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &104114482
 GameObject:
@@ -862,7 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &161909299
 MeshRenderer:
@@ -970,8 +966,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 249644234}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 19.25, z: 0}
-  m_LocalScale: {x: 2, y: 2.5, z: 1}
+  m_LocalPosition: {x: -25, y: 19.75, z: 0}
+  m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
   m_RootOrder: 64
@@ -987,7 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &249644237
 MonoBehaviour:
@@ -1183,7 +1178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &294372649
 GameObject:
@@ -1326,6 +1320,11 @@ Transform:
   - {fileID: 979563175}
   - {fileID: 703463342}
   - {fileID: 1160082676}
+  - {fileID: 1093508383}
+  - {fileID: 1344250112}
+  - {fileID: 1007296324}
+  - {fileID: 1859621450}
+  - {fileID: 872719607}
   m_Father: {fileID: 1320370371}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1423,7 +1422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &320241579
 GameObject:
@@ -1469,7 +1467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &320241582
 MonoBehaviour:
@@ -1685,7 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &458205915
 MeshRenderer:
@@ -1781,7 +1777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &461699304
 MeshRenderer:
@@ -1888,8 +1883,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 497327903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.5, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 68, z: 1}
+  m_LocalPosition: {x: -58.5, y: 0, z: 0}
+  m_LocalScale: {x: 30, y: 108, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
   m_RootOrder: 42
@@ -1905,7 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &497327906
 MeshRenderer:
@@ -2057,7 +2051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &529350459
 MeshRenderer:
@@ -2153,7 +2146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &569451193
 MeshRenderer:
@@ -2249,7 +2241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &582005983
 MeshRenderer:
@@ -2373,7 +2364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &623782539
 MeshRenderer:
@@ -2540,7 +2530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &643237080
 MeshRenderer:
@@ -2778,7 +2767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &650521777
 MeshRenderer:
@@ -2902,7 +2890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &703463344
 MeshRenderer:
@@ -3097,7 +3084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &725765480
 MeshRenderer:
@@ -3222,7 +3208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &745394984
 MonoBehaviour:
@@ -3340,7 +3325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &750733211
 MonoBehaviour:
@@ -3440,8 +3424,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765998011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -29, z: 0}
-  m_LocalScale: {x: 89, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: -39, z: 0}
+  m_LocalScale: {x: 89, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
   m_RootOrder: 40
@@ -3457,7 +3441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &765998014
 MeshRenderer:
@@ -3610,8 +3593,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 775588817}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 29, z: 0}
-  m_LocalScale: {x: 89, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: 39, z: 0}
+  m_LocalScale: {x: 89, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
   m_RootOrder: 41
@@ -3627,7 +3610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &775588820
 MeshRenderer:
@@ -3780,7 +3762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &834255774
 MonoBehaviour:
@@ -3994,7 +3975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &850349428
 MonoBehaviour:
@@ -4111,7 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &871910316
 MeshRenderer:
@@ -4164,6 +4143,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871910313}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &872719606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 872719607}
+  m_Layer: 0
+  m_Name: Pos4 (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &872719607
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 872719606}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14, y: 18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294372650}
+  m_RootOrder: 120
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911292248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,7 +4215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &911292251
 MonoBehaviour:
@@ -4353,7 +4359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &956705662
 MeshRenderer:
@@ -4449,7 +4454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &970885099
 MeshRenderer:
@@ -4617,7 +4621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &973539596
 MonoBehaviour:
@@ -4734,7 +4737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &979563177
 MeshRenderer:
@@ -4923,7 +4925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &997475944
 MeshRenderer:
@@ -4976,6 +4977,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 997475941}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1007296323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1007296324}
+  m_Layer: 0
+  m_Name: Pos2 (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007296324
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007296323}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294372650}
+  m_RootOrder: 118
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029648413
 GameObject:
   m_ObjectHideFlags: 0
@@ -5070,7 +5099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1040357883
 GameObject:
@@ -5237,7 +5265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1054030449
 GameObject:
@@ -5283,7 +5310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 4
 --- !u!23 &1054030452
 MeshRenderer:
@@ -5398,7 +5424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1075634603
 MonoBehaviour:
@@ -5500,6 +5525,127 @@ Transform:
   m_Father: {fileID: 294372650}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093508382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1093508383}
+  - component: {fileID: 1093508388}
+  - component: {fileID: 1093508387}
+  - component: {fileID: 1093508386}
+  - component: {fileID: 1093508385}
+  - component: {fileID: 1093508384}
+  m_Layer: 9
+  m_Name: MovingPlatform (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093508383
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 18, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294372650}
+  m_RootOrder: 116
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093508384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleType: 0
+--- !u!114 &1093508385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b046dfd878e944a9fc58b8e4f0986a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  horizontalRayCount: 15
+  verticalRayCount: 5
+  waypoints:
+  - {fileID: 1344250112}
+  - {fileID: 1007296324}
+  - {fileID: 1859621450}
+  - {fileID: 872719607}
+  - {fileID: 1859621450}
+  - {fileID: 1007296324}
+  waitTime: 0
+  smoothing: 0.8
+--- !u!23 &1093508386
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 3e539357cb7ce0d47846daac4cc4922c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1093508387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1093508388
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093508382}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1093880623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,7 +5760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &1101198385
 MeshRenderer:
@@ -5837,7 +5982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1160082678
 MeshRenderer:
@@ -6005,7 +6149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 1
 --- !u!114 &1173207491
 MonoBehaviour:
@@ -6122,7 +6265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1176768874
 MeshRenderer:
@@ -6218,7 +6360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &1185914406
 MeshRenderer:
@@ -6314,7 +6455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &1195601297
 MeshRenderer:
@@ -6410,7 +6550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1202173840
 MeshRenderer:
@@ -6507,7 +6646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &1220332806
 MonoBehaviour:
@@ -6625,7 +6763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &1244701210
 MonoBehaviour:
@@ -6742,7 +6879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1291484687
 MeshRenderer:
@@ -6910,7 +7046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1307259868
 MonoBehaviour:
@@ -7015,6 +7150,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1344250111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1344250112}
+  m_Layer: 0
+  m_Name: Pos1 (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344250112
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1344250111}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294372650}
+  m_RootOrder: 117
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1347111239
 GameObject:
   m_ObjectHideFlags: 0
@@ -7058,7 +7221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!23 &1347111242
 MeshRenderer:
@@ -7137,8 +7299,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1369003693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.5, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 68, z: 1}
+  m_LocalPosition: {x: 58.5, y: 0, z: 0}
+  m_LocalScale: {x: 30, y: 108, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}
   m_RootOrder: 43
@@ -7154,7 +7316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1369003696
 MeshRenderer:
@@ -7421,7 +7582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1403382502
 MonoBehaviour:
@@ -7538,7 +7698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!23 &1404495922
 MeshRenderer:
@@ -7663,7 +7822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1420698253
 MonoBehaviour:
@@ -7831,7 +7989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1432228175
 GameObject:
@@ -7876,7 +8033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!23 &1432228178
 MeshRenderer:
@@ -8208,7 +8364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1481434120
 MeshRenderer:
@@ -8305,7 +8460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &1499010622
 MonoBehaviour:
@@ -8423,7 +8577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &1499807209
 MonoBehaviour:
@@ -8753,7 +8906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1599437781
 MeshRenderer:
@@ -8849,7 +9001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1611055348
 MeshRenderer:
@@ -8945,7 +9096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1626807672
 MeshRenderer:
@@ -9041,7 +9191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1636430115
 MeshRenderer:
@@ -9165,7 +9314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1652586056
 MeshRenderer:
@@ -9392,7 +9540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!23 &1770196989
 MeshRenderer:
@@ -9489,7 +9636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!114 &1772409991
 MonoBehaviour:
@@ -9657,7 +9803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1796265556
 GameObject:
@@ -9753,7 +9898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1803902942
 GameObject:
@@ -9855,7 +9999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1816281589
 MonoBehaviour:
@@ -10043,7 +10186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &1818599258
 MeshRenderer:
@@ -10167,6 +10309,34 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1859621449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1859621450}
+  m_Layer: 0
+  m_Name: Pos3 (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1859621450
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859621449}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11, y: 21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294372650}
+  m_RootOrder: 119
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1864182612
 GameObject:
   m_ObjectHideFlags: 0
@@ -10314,7 +10484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 4
 --- !u!114 &1873368248
 MonoBehaviour:
@@ -10482,7 +10651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &1907243511
 GameObject:
@@ -10528,7 +10696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 3
 --- !u!114 &1907243514
 MonoBehaviour:
@@ -10699,7 +10866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &1916739932
 MeshRenderer:
@@ -10814,7 +10980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 4
 --- !u!23 &1925878292
 MeshRenderer:
@@ -10910,7 +11075,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &1927204727
 MeshRenderer:
@@ -11275,7 +11439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 2
 --- !u!23 &2013778288
 MeshRenderer:
@@ -11526,7 +11689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &2078276041
 MeshRenderer:
@@ -11766,7 +11928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!1 &2106751193
 GameObject:
@@ -11811,7 +11972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 0
 --- !u!23 &2106751196
 MeshRenderer:
@@ -11907,7 +12067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 1
 --- !u!23 &2129889511
 MeshRenderer:
@@ -12003,7 +12162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a313d3b6967f0b4c96b78197bc6727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotMaterialTimer: 1
   obstacleType: 1
 --- !u!23 &2132689258
 MeshRenderer:
@@ -12078,7 +12236,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140786440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 22.75, z: 0}
+  m_LocalPosition: {x: -25, y: 22.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 294372650}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
 
-	public float hotMaterialTimer = 1.0f;
+	const float hotMaterialTimer = 1.0f;
 	protected float currentHotMaterialTimer = 0.0f;
 
 	public enum ObstacleType {

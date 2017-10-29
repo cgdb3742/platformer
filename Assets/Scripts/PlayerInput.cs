@@ -81,7 +81,8 @@ public class PlayerInput : MonoBehaviour {
 			doubleJumped = false;
 		}
 
-		if ((controller.collisions.blockedAbove || controller.collisions.blockedBelow || controller.collisions.blockedLeft || controller.collisions.blockedRight) && dashed) {
+		//if ((controller.collisions.blockedAbove || controller.collisions.blockedBelow || controller.collisions.blockedLeft || controller.collisions.blockedRight) && dashed) {
+		if (controller.collisions.blockedBelow && dashed) {
 			dashed = false;
 			dashing = false;
 			currentDashDuration = 0.0f;
@@ -113,10 +114,12 @@ public class PlayerInput : MonoBehaviour {
 				}
 			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.blockedLeft) {
 				velocity.x = wallJumpImpulseX * Obstacle.GetJumpVelocityFactor (controller.collisions.left.obstacle.obstacleType);
-				velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.left.obstacle.obstacleType);
+				//velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.left.obstacle.obstacleType);
+				velocity.y = wallJumpImpulseY;
 			} else if ((input.x < 0 || clingRightWall) && controller.collisions.blockedRight) {
 				velocity.x = -wallJumpImpulseX * Obstacle.GetJumpVelocityFactor (controller.collisions.right.obstacle.obstacleType);
-				velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.right.obstacle.obstacleType);
+				//velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.right.obstacle.obstacleType);
+				velocity.y = wallJumpImpulseY;
 			} else if (!doubleJumped) {
 				velocity.y = jumpVelocity;
 				doubleJumped = true;
@@ -162,7 +165,7 @@ public class PlayerInput : MonoBehaviour {
 				velocity = Vector3.zero;
 				//velocity.x = platformVelocity.x + (clingLeftWall ? -0.5f : 0.5f);
 				//velocity.y = platformVelocity.y;
-				velocity.x = clingLeftWall ? -0.5f : 0.5f;
+				velocity.x = clingLeftWall ? -1.0f : 1.0f;
 			} else {
 				float targetVelocityX = input.x * moveSpeed;
 

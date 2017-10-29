@@ -228,25 +228,29 @@ public class PlayerController : MonoBehaviour {
 			Debug.DrawRay (rayOrigin, rayLength * Vector3.up, Color.red);
 
 			if (hit) {
-					collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				collisions.above.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				bool register = true;
+
 				if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
-					return;
+					register = false;
 				} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
-					return;
+					register = false;
 				} else if (collisions.above.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedAbove = true;
 				}
 
-				collisions.above.isColliding = true;
+				if (register) {
+					collisions.above.isColliding = true;
 
-				if (movingAbove) {
-					collisions.blockedAbove = true;
-					velocity.y = (hitInfo.distance - raycastOriginOffset);
+					if (movingAbove) {
+						collisions.blockedAbove = true;
+						velocity.y = (hitInfo.distance - raycastOriginOffset);
+					}
+
+					rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 				}
-
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}
@@ -266,24 +270,28 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				collisions.below.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				bool register = true;
+
 				if (!collisions.below.obstacle.enabled) {
-					return;
+					register = false;
 				} else if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
-					return;
+					register = false;
 				} else if (collisions.below.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedBelow = true;
 				}
 
-				collisions.below.isColliding = true;
+				if (register) {
+					collisions.below.isColliding = true;
 
-				if (movingBelow) {
-					collisions.blockedBelow = true;
-					velocity.y = -(hitInfo.distance - raycastOriginOffset);
+					if (movingBelow) {
+						collisions.blockedBelow = true;
+						velocity.y = -(hitInfo.distance - raycastOriginOffset);
+					}
+
+					rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 				}
-
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}
@@ -303,24 +311,28 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				collisions.left.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				bool register = true;
+
 				if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
-					return;
+					register = false;
 				} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
-					return;
+					register = false;
 				} else if (collisions.left.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedLeft = true;
 				}
 
-				collisions.left.isColliding = true;
+				if (register) {
+					collisions.left.isColliding = true;
 
-				if (movingLeft) {
-					collisions.blockedLeft = true;
-					velocity.x = -(hitInfo.distance - raycastOriginOffset);
+					if (movingLeft) {
+						collisions.blockedLeft = true;
+						velocity.x = -(hitInfo.distance - raycastOriginOffset);
+					}
+
+					rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 				}
-
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}
@@ -340,24 +352,28 @@ public class PlayerController : MonoBehaviour {
 
 			if (hit) {
 				collisions.right.obstacle = hitInfo.collider.gameObject.GetComponent<Obstacle> ();
+				bool register = true;
+
 				if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
-					return;
+					register = false;
 				} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.TraversablePlatform) {
-					return;
+					register = false;
 				} else if (collisions.right.obstacle.obstacleType == Obstacle.ObstacleType.Hot && !damaged && currentInvulnerabilityTimer <= 0.0f) {
 					GetDamaged ();
 					damaged = true;
 					collisions.damagedRight = true;
 				}
 
-				collisions.right.isColliding = true;
+				if (register) {
+					collisions.right.isColliding = true;
 
-				if (movingRight) {
-					collisions.blockedRight = true;
-					velocity.x = (hitInfo.distance - raycastOriginOffset);
+					if (movingRight) {
+						collisions.blockedRight = true;
+						velocity.x = (hitInfo.distance - raycastOriginOffset);
+					}
+
+					rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 				}
-
-				rayLength = hitInfo.distance;										// pour ne pas détecter de collisions plus loin que l'obstacle
 			}
 		}
 	}

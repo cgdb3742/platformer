@@ -73,7 +73,7 @@ public class MovingPlatform : MonoBehaviour {
 					bool register = true;
 
 					if (controller != null && obstacle != null) {
-						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+						if ((controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) || obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
 							register = false;
 						}
 					}
@@ -105,7 +105,7 @@ public class MovingPlatform : MonoBehaviour {
 					bool register = true;
 
 					if (controller != null && obstacle != null) {
-						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+						if ((controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) || obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
 							register = false;
 						}
 					}
@@ -137,7 +137,7 @@ public class MovingPlatform : MonoBehaviour {
 					bool register = true;
 
 					if (controller != null && obstacle != null) {
-						if (controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) {
+						if ((controller.currentInvulnerabilityTimer <= 0.0f && obstacle.obstacleType == Obstacle.ObstacleType.Hot) || obstacle.obstacleType == Obstacle.ObstacleType.Fan) {
 							register = false;
 						}
 					}

@@ -112,11 +112,11 @@ public class PlayerInput : MonoBehaviour {
 					velocity.y = jumpVelocity * Obstacle.GetJumpVelocityFactor (controller.collisions.below.obstacle.obstacleType);
 				}
 			} else if ((input.x > 0 || clingLeftWall) && controller.collisions.blockedLeft) {
-				velocity.x = wallJumpImpulseX;
-				velocity.y = wallJumpImpulseY;
+				velocity.x = wallJumpImpulseX * Obstacle.GetJumpVelocityFactor (controller.collisions.left.obstacle.obstacleType);
+				velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.left.obstacle.obstacleType);
 			} else if ((input.x < 0 || clingRightWall) && controller.collisions.blockedRight) {
-				velocity.x = -wallJumpImpulseX;
-				velocity.y = wallJumpImpulseY;
+				velocity.x = -wallJumpImpulseX * Obstacle.GetJumpVelocityFactor (controller.collisions.right.obstacle.obstacleType);
+				velocity.y = wallJumpImpulseY * Obstacle.GetJumpVelocityFactor (controller.collisions.right.obstacle.obstacleType);
 			} else if (!doubleJumped) {
 				velocity.y = jumpVelocity;
 				doubleJumped = true;
